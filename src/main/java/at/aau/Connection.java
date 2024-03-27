@@ -16,10 +16,16 @@ import java.util.Set;
 public class Connection extends Thread {
     private final Socket socket;
     private static Set<Connection> connections = Collections.synchronizedSet(new HashSet<>());
-
+    private DataOutputStream out;
     public Connection(Socket socket) {
-        connections.add(this);
         this.socket = socket;
+        connections.add(this);
+        ClientHandler.addConnection(this);
+        try {
+            this.out = new DataOutputStream(socket.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -32,6 +38,17 @@ public class Connection extends Thread {
 //                TODO: deserialize requests
                 CommandHandler.execute(new Request(CommandType.PING, new NoOpPayload()), new Player(socket, "name"));
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            ClientHandler.removeConnection(this);
+        }
+    }
+    //send message to client
+    public void sendMessage(String message) {
+        try {
+            out.writeUTF(message); // B
         } catch (Exception e) {
             e.printStackTrace();
         }

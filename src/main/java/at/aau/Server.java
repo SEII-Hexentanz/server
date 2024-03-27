@@ -5,12 +5,22 @@ import java.net.ServerSocket;
 public class Server {
     void start() {
         System.out.println("Server started");
-        try (var serverSocket = new ServerSocket(8080)) {
+        ServerSocket serverSocket = null;
+        try {
+            serverSocket = new ServerSocket(8080);
             while (true) {
                 new Connection(serverSocket.accept()).start();
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (serverSocket != null) {
+                    serverSocket.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
