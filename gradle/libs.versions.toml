@@ -1,11 +1,12 @@
 [versions]
 junit = "5.10.2"
 vavr = "1.0.0-alpha-4"
+sonarcube = "5.0.0.4638"
 
 [libraries]
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-vavr = { module = "io.vavr:vavr", version.ref = "vavr"}
+junit = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junitEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+vavr = { module = "io.vavr:vavr", version.ref = "vavr" }
 
 [plugins]
-
-
+sonarqube = { id = "org.sonarqube", version.ref = "sonarcube" }

@@ -1,5 +1,7 @@
 plugins {
     java
+    jacoco
+    alias(libs.plugins.sonarqube)
 }
 
 group = "at.aau"
@@ -11,6 +13,7 @@ repositories {
 
 dependencies {
     testImplementation(libs.junit)
+    testRuntimeOnly(libs.junitEngine)
     implementation(libs.vavr)
 }
 
@@ -21,4 +24,22 @@ java {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "SEII-Hexentanz_server")
+        property("sonar.organization", "seii-hexentanz")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.java.coveragePlugin", "jacoco")
+        property(
+            "sonar.coverage.jacoco.xmlReportPaths",
+            "${project.projectDir}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+        )
+    }
 }
