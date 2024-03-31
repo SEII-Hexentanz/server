@@ -15,6 +15,9 @@ dependencies {
     testImplementation(libs.junit)
     testRuntimeOnly(libs.junitEngine)
     implementation(libs.vavr)
+    implementation(libs.log4j.core)
+    implementation(libs.log4j.api)
+    implementation(libs.log4j.slf4j)
 }
 
 java {
