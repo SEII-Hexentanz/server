@@ -71,6 +71,11 @@ public class Connection extends Thread {
         return this.socket.equals(that.socket);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(socket);
+    }
+
     /**
      * Removes the connection from its player instance and closes the socket.
      * This allows users to reconnect to a player instance with a new connection.

@@ -57,4 +57,9 @@ public final class Player implements Comparable<Player>, Serializable {
                 Objects.equals(this.color, that.color) &&
                 this.age == that.age;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, color, age);
+    }
 }
