@@ -1,12 +1,10 @@
 package at.aau.commandHandler;
 
-import at.aau.errors.DomainError;
-import at.aau.models.Payload;
+import at.aau.Game;
 import at.aau.models.Player;
-import at.aau.models.Response;
-import io.vavr.control.Either;
+import at.aau.payloads.Payload;
 
 @FunctionalInterface
 public interface Command {
-    Either<DomainError, Response> execute(Player player, Payload payload);
+    void execute(Game game, Player player, Payload payload);
 }
