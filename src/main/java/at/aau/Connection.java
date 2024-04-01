@@ -5,12 +5,12 @@ import at.aau.commandHandler.CommandType;
 import at.aau.models.Player;
 import at.aau.models.Request;
 import at.aau.payloads.RegisterPayload;
+import at.aau.util.SecureObjectInputStream;
 import at.aau.values.ResponseType;
 import io.vavr.control.Option;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
@@ -29,7 +29,7 @@ public class Connection extends Thread {
     @Override
     public void run() {
         try (
-                var in = new ObjectInputStream(socket.getInputStream());
+                var in = new SecureObjectInputStream(socket.getInputStream());
                 var out = new ObjectOutputStream(socket.getOutputStream())
         ) {
             while (true) {
