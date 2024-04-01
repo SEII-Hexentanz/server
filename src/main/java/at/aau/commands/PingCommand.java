@@ -1,16 +1,16 @@
 package at.aau.commands;
 
+import at.aau.Game;
 import at.aau.commandHandler.Command;
-import at.aau.errors.DomainError;
-import at.aau.models.Payload;
 import at.aau.models.Player;
 import at.aau.models.Response;
-import io.vavr.control.Either;
+import at.aau.payloads.EmptyPayload;
+import at.aau.payloads.Payload;
+import at.aau.values.ResponseType;
 
 public class PingCommand implements Command {
     @Override
-    public Either<DomainError, Response> execute(Player player, Payload payload) {
-        System.out.println("Pong");
-        return null;
+    public void execute(Game game, Player player, Payload payload) {
+        player.send(new Response(ResponseType.PONG, new EmptyPayload()));
     }
 }
