@@ -12,12 +12,15 @@ repositories {
 }
 
 dependencies {
-    testImplementation(libs.junit)
-    testRuntimeOnly(libs.junitEngine)
     implementation(libs.vavr)
     implementation(libs.log4j.core)
     implementation(libs.log4j.api)
     implementation(libs.log4j.slf4j)
+
+    testRuntimeOnly(libs.junit.engine)
+    testImplementation(libs.junit.api)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.junit)
 }
 
 java {
