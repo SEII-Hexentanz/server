@@ -10,9 +10,20 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Game implements Serializable {
-    public SortedSet<Player> players = Collections.synchronizedSortedSet(new TreeSet<>());
+    private final SortedSet<Player> players = Collections.synchronizedSortedSet(new TreeSet<>());
+    private GameState state = GameState.LOBBY;
 
-    public GameState state = GameState.LOBBY;
+    public SortedSet<Player> getPlayers() {
+        return players;
+    }
+
+    public GameState getState() {
+        return state;
+    }
+
+    public void setState(GameState state) {
+        this.state = state;
+    }
 
     public void broadcast(Response response) {
         players.forEach(p -> p.send(response));

@@ -15,7 +15,7 @@ public final class Player implements Comparable<Player>, Serializable {
      * Option.none() player is offline - allowed to reconnect and register with new socket.
      */
     transient public Option<Connection> connection;
-    public Color color;
+    private Color color;
 
     public Player(Connection connection, String name, int age) {
         this.connection = Option.of(connection);
@@ -42,6 +42,10 @@ public final class Player implements Comparable<Player>, Serializable {
 
     public Color color() {
         return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public int age() {

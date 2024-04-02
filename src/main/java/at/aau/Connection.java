@@ -46,7 +46,7 @@ public class Connection extends Thread {
                     CommandHandler.execute(request, player, game);
                     continue;
                 }
-                game.players.stream().filter(player -> Objects.equals(player.connection.getOrNull(), this))
+                game.getPlayers().stream().filter(player -> Objects.equals(player.connection.getOrNull(), this))
                         .findFirst().ifPresentOrElse(player -> CommandHandler.execute(request, player, game),
                                 () -> send(ResponseType.NOT_REGISTERED));
             }
@@ -81,7 +81,7 @@ public class Connection extends Thread {
      * This allows users to reconnect to a player instance with a new connection.
      */
     private void kill() {
-        game.players.stream().filter(p -> p.connection.map(c -> c.equals(this)).getOrElse(false)).forEach(p -> p.connection = Option.none());
+        game.getPlayers().stream().filter(p -> p.connection.map(c -> c.equals(this)).getOrElse(false)).forEach(p -> p.connection = Option.none());
         try {
             socket.close();
         } catch (IOException e) {
