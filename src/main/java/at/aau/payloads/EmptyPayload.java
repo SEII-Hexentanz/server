@@ -1,4 +1,4 @@
 package at.aau.payloads;
 
-public class EmptyPayload implements Payload {
+public record EmptyPayload() implements Payload {
 }
