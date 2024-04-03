@@ -2,11 +2,18 @@
 junit = "5.10.2"
 vavr = "1.0.0-alpha-4"
 sonarcube = "5.0.0.4638"
+log4j = "2.23.1"
+mockito = "5.11.0"
 
 [libraries]
-junit = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
-junitEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 vavr = { module = "io.vavr:vavr", version.ref = "vavr" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j-impl", version.ref = "log4j" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
 
 [plugins]
 sonarqube = { id = "org.sonarqube", version.ref = "sonarcube" }
