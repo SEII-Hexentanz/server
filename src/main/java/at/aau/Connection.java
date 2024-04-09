@@ -18,6 +18,7 @@ import java.util.Objects;
 
 public class Connection extends Thread {
     private final Socket socket;
+    private ObjectOutputStream out;
     private final Game game;
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(Connection.class);
 
@@ -28,10 +29,11 @@ public class Connection extends Thread {
 
     @Override
     public void run() {
+        logger.info("Connection established");
         try (
                 var in = new SecureObjectInputStream(socket.getInputStream());
-                var out = new ObjectOutputStream(socket.getOutputStream())
         ) {
+            this.out = new ObjectOutputStream(socket.getOutputStream());
             while (true) {
                 Request request;
                 try {
@@ -41,6 +43,7 @@ public class Connection extends Thread {
                     send(ResponseType.BAD_REQUEST);
                     continue;
                 }
+                logger.info("Received request: {}", request);
                 if (request.commandType() == CommandType.REGISTER && request.payload() instanceof RegisterPayload payload) {
                     var player = new Player(this, payload.name(), payload.age());
                     CommandHandler.execute(request, player, game);
@@ -56,7 +59,7 @@ public class Connection extends Thread {
     }
 
     public void send(Serializable object) {
-        try (var out = new ObjectOutputStream(socket.getOutputStream())) {
+        try {
             out.writeObject(object);
         } catch (Exception e) {
             logger.error("Failed to send object", e);
@@ -84,6 +87,7 @@ public class Connection extends Thread {
         game.getPlayers().stream().filter(p -> p.connection.map(c -> c.equals(this)).getOrElse(false)).forEach(p -> p.connection = Option.none());
         try {
             socket.close();
+            logger.info("Connection closed");
         } catch (IOException e) {
             logger.error("Failed to close socket", e);
         }
