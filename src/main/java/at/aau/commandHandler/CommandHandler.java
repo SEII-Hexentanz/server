@@ -16,6 +16,7 @@ import java.util.Map;
 public class CommandHandler {
     private static final Map<CommandType, Command> commands = new HashMap<>() {{
         put(CommandType.PING, new PingCommand());
+        put(CommandType.REGISTER, new RegisterCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {
