@@ -1,6 +1,6 @@
-package at.aau.models;
+package at.aau;
 
-import at.aau.Connection;
+import at.aau.models.Response;
 import at.aau.values.Color;
 import io.vavr.control.Option;
 
@@ -65,5 +65,9 @@ public final class Player implements Comparable<Player>, Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(name, color, age);
+    }
+
+    public at.aau.models.Player toModel() {
+        return new at.aau.models.Player(name, age, color);
     }
 }

@@ -1,11 +1,13 @@
 package at.aau.commandHandler;
 
 import at.aau.Game;
+import at.aau.Player;
 import at.aau.commands.PingCommand;
-import at.aau.models.Player;
+import at.aau.commands.RegisterCommand;
 import at.aau.models.Request;
 import at.aau.models.Response;
 import at.aau.payloads.UpdateStatePayload;
+import at.aau.values.CommandType;
 import at.aau.values.ResponseType;
 
 import java.util.HashMap;

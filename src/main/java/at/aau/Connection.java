@@ -1,11 +1,11 @@
 package at.aau;
 
 import at.aau.commandHandler.CommandHandler;
-import at.aau.commandHandler.CommandType;
-import at.aau.models.Player;
 import at.aau.models.Request;
+import at.aau.models.Response;
 import at.aau.payloads.RegisterPayload;
 import at.aau.util.SecureObjectInputStream;
+import at.aau.values.CommandType;
 import at.aau.values.ResponseType;
 import io.vavr.control.Option;
 import org.slf4j.LoggerFactory;

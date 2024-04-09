@@ -1,4 +1,4 @@
-package at.aau.commandHandler;
+package at.aau.values;
 
 public enum CommandType {
     PING,
