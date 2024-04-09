@@ -21,6 +21,6 @@ public class CommandHandler {
 
     public static void execute(Request request, Player player, Game game) {
         commands.get(request.commandType()).execute(game, player, request.payload());
-        game.broadcast(new Response(ResponseType.UPDATE_STATE, new UpdateStatePayload(game)));
+        game.broadcast(new Response(ResponseType.UPDATE_STATE, new UpdateStatePayload(game.toModel())));
     }
 }

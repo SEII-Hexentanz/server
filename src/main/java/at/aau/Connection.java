@@ -48,7 +48,7 @@ public class Connection extends Thread {
                 }
                 game.getPlayers().stream().filter(player -> Objects.equals(player.connection.getOrNull(), this))
                         .findFirst().ifPresentOrElse(player -> CommandHandler.execute(request, player, game),
-                                () -> send(ResponseType.NOT_REGISTERED));
+                                () -> send(new Response(ResponseType.NOT_REGISTERED)));
             }
         } catch (IOException e) {
             kill();
