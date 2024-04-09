@@ -1,8 +1,8 @@
 package at.aau.commands;
 
 import at.aau.Game;
+import at.aau.Player;
 import at.aau.commandHandler.Command;
-import at.aau.models.Player;
 import at.aau.models.Response;
 import at.aau.payloads.Payload;
 import at.aau.values.Color;

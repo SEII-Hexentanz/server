@@ -1,7 +1,7 @@
 package at.aau.commandHandler;
 
 import at.aau.Game;
-import at.aau.models.Player;
+import at.aau.Player;
 import at.aau.payloads.Payload;
 
 @FunctionalInterface
