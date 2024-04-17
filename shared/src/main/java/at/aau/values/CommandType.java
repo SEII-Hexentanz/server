@@ -7,5 +7,4 @@ public enum CommandType {
     PLAYER_MOVE,
     REGISTER,
     START
-
 }
