@@ -4,6 +4,7 @@ import at.aau.Game;
 import at.aau.Player;
 import at.aau.commands.PingCommand;
 import at.aau.commands.RegisterCommand;
+import at.aau.commands.StartCommand;
 import at.aau.models.Request;
 import at.aau.models.Response;
 import at.aau.payloads.EmptyPayload;
@@ -20,6 +21,7 @@ public class CommandHandler {
         put(CommandType.REGISTER, new RegisterCommand());
         put(CommandType.CHEAT, new RegisterCommand());
         put(CommandType.DICE_ROLL, new RegisterCommand());
+        put(CommandType.START, new StartCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {

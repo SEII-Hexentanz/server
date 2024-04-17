@@ -5,5 +5,6 @@ public enum CommandType {
     CHEAT,
     DICE_ROLL,
     PLAYER_MOVE,
-    REGISTER
+    REGISTER,
+    START
 }
