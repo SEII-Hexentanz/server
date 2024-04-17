@@ -7,7 +7,6 @@ import at.aau.commands.RegisterCommand;
 import at.aau.commands.StartCommand;
 import at.aau.models.Request;
 import at.aau.models.Response;
-import at.aau.payloads.EmptyPayload;
 import at.aau.payloads.UpdateStatePayload;
 import at.aau.values.CommandType;
 import at.aau.values.ResponseType;
@@ -19,8 +18,8 @@ public class CommandHandler {
     private static final Map<CommandType, Command> commands = new HashMap<>() {{
         put(CommandType.PING, new PingCommand());
         put(CommandType.REGISTER, new RegisterCommand());
-        put(CommandType.CHEAT, new RegisterCommand());
-        put(CommandType.DICE_ROLL, new RegisterCommand());
+        put(CommandType.CHEAT, new PingCommand());
+        put(CommandType.DICE_ROLL, new PingCommand());
         put(CommandType.START, new StartCommand());
     }};
 
