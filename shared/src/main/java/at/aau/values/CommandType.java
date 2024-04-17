@@ -4,5 +4,6 @@ public enum CommandType {
     PING,
     CHEAT,
     DICE_ROLL,
+    PLAYER_MOVE,
     REGISTER
 }
