@@ -27,11 +27,11 @@
         {
           "name": "hexentanz-shared-1.0.1.jar",
           "url": "hexentanz-shared-1.0.1.jar",
-          "size": 10473,
-          "sha512": "36c6a7f6dd905465c044693b0d00ce23c8c17d075e47ac58047db735e42e3d33a19d0600c9b604bb410bc41834e5014caa401a33320d2893990df7fe5f9787ea",
-          "sha256": "782ab32ae3c9212ad64e9b8ef14d4bb4f38916e9e38a1b01fa43d9a2b0c53115",
-          "sha1": "4a5598c5ad45a747cdc65f702ce5e1acb812289c",
-          "md5": "57aa1743b4a069a2ca5b6db719bbe77b"
+          "size": 10505,
+          "sha512": "2e6792924c60a05be5c739d75c07b9d210b53b16df1b6846ba87c7e6420e8cd498291c21e94956042df88c7971893796335abca0b9fd793858f03745c3d6d761",
+          "sha256": "446b0be852631dea38c448085006ca4be860d52b2bb9e0d0d94cacbf999b5848",
+          "sha1": "f9700ec535301694b10c22695699012d2097166b",
+          "md5": "a175c73237540ed8cf83373c41b537c2"
         }
       ]
     },
@@ -48,11 +48,11 @@
         {
           "name": "hexentanz-shared-1.0.1.jar",
           "url": "hexentanz-shared-1.0.1.jar",
-          "size": 10473,
-          "sha512": "36c6a7f6dd905465c044693b0d00ce23c8c17d075e47ac58047db735e42e3d33a19d0600c9b604bb410bc41834e5014caa401a33320d2893990df7fe5f9787ea",
-          "sha256": "782ab32ae3c9212ad64e9b8ef14d4bb4f38916e9e38a1b01fa43d9a2b0c53115",
-          "sha1": "4a5598c5ad45a747cdc65f702ce5e1acb812289c",
-          "md5": "57aa1743b4a069a2ca5b6db719bbe77b"
+          "size": 10505,
+          "sha512": "2e6792924c60a05be5c739d75c07b9d210b53b16df1b6846ba87c7e6420e8cd498291c21e94956042df88c7971893796335abca0b9fd793858f03745c3d6d761",
+          "sha256": "446b0be852631dea38c448085006ca4be860d52b2bb9e0d0d94cacbf999b5848",
+          "sha1": "f9700ec535301694b10c22695699012d2097166b",
+          "md5": "a175c73237540ed8cf83373c41b537c2"
         }
       ]
     }
