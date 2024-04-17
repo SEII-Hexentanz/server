@@ -18,6 +18,8 @@ public class CommandHandler {
     private static final Map<CommandType, Command> commands = new HashMap<>() {{
         put(CommandType.PING, new PingCommand());
         put(CommandType.REGISTER, new RegisterCommand());
+        put(CommandType.CHEAT, new PingCommand());
+        put(CommandType.DICE_ROLL, new PingCommand());
         put(CommandType.START, new StartCommand());
     }};
 
