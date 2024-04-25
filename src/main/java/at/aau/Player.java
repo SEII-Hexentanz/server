@@ -78,10 +78,10 @@ public final class Player implements Comparable<Player>, Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, color, age, characters);
+        return Objects.hash(name, color, age);
     }
 
     public at.aau.models.Player toModel() {
-        return new at.aau.models.Player(name, age, color, characters);
+        return new at.aau.models.Player(name, age, color);
     }
 }
