@@ -6,6 +6,7 @@ import at.aau.values.Color;
 import io.vavr.control.Option;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 public final class Player implements Comparable<Player>, Serializable {
@@ -64,8 +65,10 @@ public final class Player implements Comparable<Player>, Serializable {
         var that = (Player) obj;
         return Objects.equals(this.name, that.name) &&
                 Objects.equals(this.color, that.color) &&
-                this.age == that.age;
+                this.age == that.age
+                && Arrays.equals(characters, that.characters);
     }
+
     private void createCharaters() {
         characters = new Character[4];
         for (int i = 0; i < characters.length; i++) {
@@ -73,12 +76,12 @@ public final class Player implements Comparable<Player>, Serializable {
         }
     }
 
-        @Override
+    @Override
     public int hashCode() {
         return Objects.hash(name, color, age, characters);
     }
 
     public at.aau.models.Player toModel() {
-        return new at.aau.models.Player(name, age, color,characters);
+        return new at.aau.models.Player(name, age, color, characters);
     }
 }
