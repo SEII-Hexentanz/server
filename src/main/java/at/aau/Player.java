@@ -1,15 +1,19 @@
 package at.aau;
 
+import at.aau.models.Character;
 import at.aau.models.Response;
 import at.aau.values.Color;
 import io.vavr.control.Option;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 public final class Player implements Comparable<Player>, Serializable {
     private final String name;
     private final int age;
+
+    private Character[] characters;
     /**
      * Option.some() player is online - reconnecting with same name is not allowed.
      * Option.none() player is offline - allowed to reconnect and register with new socket.
@@ -22,6 +26,8 @@ public final class Player implements Comparable<Player>, Serializable {
         this.name = name;
         this.color = Color.RED;
         this.age = age;
+
+        createCharaters();
     }
 
     public void send(Response response) {
@@ -59,15 +65,23 @@ public final class Player implements Comparable<Player>, Serializable {
         var that = (Player) obj;
         return Objects.equals(this.name, that.name) &&
                 Objects.equals(this.color, that.color) &&
-                this.age == that.age;
+                this.age == that.age &&
+                Arrays.equals(characters, that.characters);
+    }
+
+    private void createCharaters() {
+        characters = new Character[4];
+        for (int i = 0; i < characters.length; i++) {
+            characters[i] = new Character();
+        }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, color, age);
+        return Objects.hash(name, color, age, characters);
     }
 
     public at.aau.models.Player toModel() {
-        return new at.aau.models.Player(name, age, color);
+        return new at.aau.models.Player(name, age, color, characters);
     }
 }
