@@ -20,7 +20,6 @@ public record Player(String name, int age, Color color, Character[] characters) 
         Player player = (Player) obj;
         return age == player.age && Objects.equals(name, player.name) && color == player.color && Arrays.equals(characters, player.characters);
     }
-
     @Override
     public int hashCode() {
         int result = Objects.hash(name, age, color);
