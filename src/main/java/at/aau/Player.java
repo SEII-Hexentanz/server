@@ -65,8 +65,8 @@ public final class Player implements Comparable<Player>, Serializable {
         var that = (Player) obj;
         return Objects.equals(this.name, that.name) &&
                 Objects.equals(this.color, that.color) &&
-                this.age == that.age
-                && Arrays.equals(characters, that.characters);
+                this.age == that.age &&
+                Arrays.equals(characters, that.characters);
     }
 
     private void createCharaters() {
