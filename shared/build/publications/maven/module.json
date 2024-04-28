@@ -1,0 +1,60 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "at.aau",
+    "module": "hexentanz-shared",
+    "version": "1.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "hexentanz-shared-1.0.2.jar",
+          "url": "hexentanz-shared-1.0.2.jar",
+          "size": 10539,
+          "sha512": "c8128e30a44e34800db5ad91eefbb05a33a24b6e88e0497173a5653c673c0fd1055dfc79151ee88937fef744cabfc8140d3db607a87ebff38ed8bd5b470c198d",
+          "sha256": "b742fd59b39590ffc87775a15d3dabaead9b0e190d06957a5a6f6beea4e0d1d0",
+          "sha1": "403399a8ce66ab96532f1b2dc1b55eb94e7b4ac1",
+          "md5": "097a971d6e0cee853ec513853f6736ea"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "hexentanz-shared-1.0.2.jar",
+          "url": "hexentanz-shared-1.0.2.jar",
+          "size": 10539,
+          "sha512": "c8128e30a44e34800db5ad91eefbb05a33a24b6e88e0497173a5653c673c0fd1055dfc79151ee88937fef744cabfc8140d3db607a87ebff38ed8bd5b470c198d",
+          "sha256": "b742fd59b39590ffc87775a15d3dabaead9b0e190d06957a5a6f6beea4e0d1d0",
+          "sha1": "403399a8ce66ab96532f1b2dc1b55eb94e7b4ac1",
+          "md5": "097a971d6e0cee853ec513853f6736ea"
+        }
+      ]
+    }
+  ]
+}
