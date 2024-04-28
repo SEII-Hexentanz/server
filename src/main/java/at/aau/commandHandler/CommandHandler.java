@@ -21,6 +21,7 @@ public class CommandHandler {
         put(CommandType.REGISTER, new RegisterCommand());
         put(CommandType.CHEAT, new RegisterCommand());
         put(CommandType.DICE_ROLL, new RegisterCommand());
+        put(CommandType.PLAYER_MOVE, new RegisterCommand());
         put(CommandType.START, new StartCommand());
     }};
 
