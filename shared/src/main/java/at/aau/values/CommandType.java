@@ -6,5 +6,6 @@ public enum CommandType {
     DICE_ROLL,
     PLAYER_MOVE,
     REGISTER,
-    START
+    START,
+    RECONNECT,
 }
