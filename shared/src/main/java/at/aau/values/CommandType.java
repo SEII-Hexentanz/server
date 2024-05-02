@@ -7,5 +7,6 @@ public enum CommandType {
     PLAYER_MOVE,
     REGISTER,
     TIMER,
-    START
+    START,
+    RECONNECT,
 }

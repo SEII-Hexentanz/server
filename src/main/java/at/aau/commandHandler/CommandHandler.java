@@ -7,7 +7,6 @@ import at.aau.commands.RegisterCommand;
 import at.aau.commands.StartCommand;
 import at.aau.models.Request;
 import at.aau.models.Response;
-import at.aau.payloads.EmptyPayload;
 import at.aau.payloads.UpdateStatePayload;
 import at.aau.values.CommandType;
 import at.aau.values.ResponseType;
@@ -23,6 +22,7 @@ public class CommandHandler {
         put(CommandType.DICE_ROLL, new RegisterCommand());
         put(CommandType.PLAYER_MOVE, new RegisterCommand());
         put(CommandType.START, new StartCommand());
+        put(CommandType.TIMER, new RegisterCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {
