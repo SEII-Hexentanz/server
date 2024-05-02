@@ -2,9 +2,7 @@ package at.aau.commandHandler;
 
 import at.aau.Game;
 import at.aau.Player;
-import at.aau.commands.PingCommand;
-import at.aau.commands.RegisterCommand;
-import at.aau.commands.StartCommand;
+import at.aau.commands.*;
 import at.aau.models.Request;
 import at.aau.models.Response;
 import at.aau.payloads.UpdateStatePayload;
@@ -23,6 +21,8 @@ public class CommandHandler {
         put(CommandType.PLAYER_MOVE, new RegisterCommand());
         put(CommandType.START, new StartCommand());
         put(CommandType.TIMER, new RegisterCommand());
+        put(CommandType.RECONNECT, new ReconnectCommand());
+
     }};
 
     public static void execute(Request request, Player player, Game game) {
