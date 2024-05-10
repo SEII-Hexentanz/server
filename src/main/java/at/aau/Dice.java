@@ -1,8 +1,11 @@
 package at.aau;
 
+import java.io.Serializable;
 import java.security.SecureRandom;
 
-public class Dice {
+import at.aau.payloads.Payload;
+
+public class Dice implements Payload, Serializable {
     private int diceNumber;
 
     public Dice(int diceNumber){
