@@ -3,6 +3,7 @@ package at.aau.commandHandler;
 import at.aau.Game;
 import at.aau.Player;
 import at.aau.commands.PingCommand;
+import at.aau.commands.PlayerMoveCommand;
 import at.aau.commands.RegisterCommand;
 import at.aau.commands.StartCommand;
 import at.aau.models.Request;
@@ -20,7 +21,7 @@ public class CommandHandler {
         put(CommandType.REGISTER, new RegisterCommand());
         put(CommandType.CHEAT, new RegisterCommand());
         put(CommandType.DICE_ROLL, new RegisterCommand());
-        put(CommandType.PLAYER_MOVE, new RegisterCommand());
+        put(CommandType.PLAYER_MOVE, new PlayerMoveCommand());
         put(CommandType.START, new StartCommand());
         put(CommandType.TIMER, new RegisterCommand());
     }};
