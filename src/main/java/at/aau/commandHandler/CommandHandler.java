@@ -17,12 +17,12 @@ public class CommandHandler {
         put(CommandType.PING, new PingCommand());
         put(CommandType.REGISTER, new RegisterCommand());
         put(CommandType.CHEAT, new RegisterCommand());
-        put(CommandType.DICE_ROLL, new RegisterCommand());
+        put(CommandType.DICE_ROLL, new DiceRollCommand());
         put(CommandType.PLAYER_MOVE, new RegisterCommand());
         put(CommandType.START, new StartCommand());
         put(CommandType.TIMER, new RegisterCommand());
         put(CommandType.RECONNECT, new ReconnectCommand());
-
+        put(CommandType.REQUEST_DICE_ROLL, new PingCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {
