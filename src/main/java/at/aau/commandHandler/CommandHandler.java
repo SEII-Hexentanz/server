@@ -2,12 +2,9 @@ package at.aau.commandHandler;
 
 import at.aau.Game;
 import at.aau.Player;
-import at.aau.commands.PingCommand;
-import at.aau.commands.RegisterCommand;
-import at.aau.commands.StartCommand;
+import at.aau.commands.*;
 import at.aau.models.Request;
 import at.aau.models.Response;
-import at.aau.payloads.EmptyPayload;
 import at.aau.payloads.UpdateStatePayload;
 import at.aau.values.CommandType;
 import at.aau.values.ResponseType;
@@ -20,7 +17,7 @@ public class CommandHandler {
         put(CommandType.PING, new PingCommand());
         put(CommandType.REGISTER, new RegisterCommand());
         put(CommandType.CHEAT, new PingCommand());
-        put(CommandType.DICE_ROLL, new PingCommand());
+        put(CommandType.DICE_ROLL, new DiceRollCommand());
         put(CommandType.START, new StartCommand());
         put(CommandType.PLAYER_MOVE, new MoveCommand());
         put(CommandType.RECONNECT, new ReconnectCommand());
