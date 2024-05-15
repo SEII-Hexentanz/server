@@ -13,10 +13,14 @@ public class PlayerMoveCommand implements Command {
     @Override
     public void execute(Game game, Player player, Payload payload) {
         if (payload instanceof PlayerMovePayload movePayload) {
-            // Update the player's position
-            player.setPosition(movePayload.newPosition());
+            int oldPosition = movePayload.oldPosition();
+            int newPosition = movePayload.newPosition();
+
+            // Update the player's position in the game
+            player.setPosition(newPosition);
+
             // Notify the player about the successful move
-            player.send(new Response(ResponseType.MOVE_SUCCESSFUL, new PlayerMovePayload(movePayload.newPosition())));
+            player.send(new Response(ResponseType.MOVE_SUCCESSFUL, new PlayerMovePayload(oldPosition, newPosition)));
         } else {
             player.send(new Response(ResponseType.BAD_REQUEST, new EmptyPayload()));
         }
