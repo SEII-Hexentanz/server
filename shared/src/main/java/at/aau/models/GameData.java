@@ -6,7 +6,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.SortedSet;
 
-public record GameData(SortedSet<Player> players, GameState gameState) implements Serializable {
+public record GameData(SortedSet<Player> players, GameState gameState, int activePlayerIndex) implements Serializable {
     @Serial
     private static final long serialVersionUID = 6820338999087102987L;
 }
