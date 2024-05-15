@@ -1,7 +1,5 @@
 package at.aau.commands;
-import org.slf4j.LoggerFactory;
 
-import at.aau.Connection;
 import at.aau.Dice;
 import at.aau.Game;
 import at.aau.Player;
@@ -11,6 +9,7 @@ import at.aau.payloads.DicePayload;
 import at.aau.payloads.EmptyPayload;
 import at.aau.payloads.Payload;
 import at.aau.values.ResponseType;
+import org.slf4j.LoggerFactory;
 
 public class DiceRollCommand implements Command {
 
@@ -18,27 +17,20 @@ public class DiceRollCommand implements Command {
 
     @Override
     public void execute(Game game, Player player, Payload payload) {
-        Dice dice  = new Dice();
+        Dice dice = new Dice();
         int diceValue = dice.useDice();
-        DicePayload dicePayload = new DicePayload(diceValue);
+        DicePayload dicePayload = new DicePayload(diceValue, player.toModel());
 
-
-        if(isValidDiceValue(diceValue)){
-
+        if (isValidDiceValue(diceValue)) {
             logger.info("INFO: DICE_ROLLED ", diceValue);
             System.out.println("DiceValue: " + diceValue);
             game.broadcast(new Response(ResponseType.DICE_ROLLED, dicePayload));
-
-        }else{
-            game.broadcast(new Response(ResponseType.BAD_REQUEST,new EmptyPayload()));
+        } else {
+            game.broadcast(new Response(ResponseType.BAD_REQUEST, new EmptyPayload()));
         }
-
     }
 
-    private boolean isValidDiceValue(int diceValue){
-        if(diceValue < 1 || diceValue >6){
-            return false;
-        }
-        return true;
+    private boolean isValidDiceValue(int diceValue) {
+        return diceValue >= 1 && diceValue <= 6;
     }
 }
