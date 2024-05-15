@@ -1,18 +1,16 @@
 package at.aau;
 
-import java.io.Serializable;
 import java.security.SecureRandom;
 
-import at.aau.payloads.Payload;
+public class Dice {
+    private final SecureRandom ran;
+    // as sonarcloud suggests due to security reason use security random instead of ran
 
-public class Dice implements Payload, Serializable {
-    private int diceNumber;
-
-    public Dice(int diceNumber){
-        this.diceNumber = diceNumber;
-    }
-    public int getDiceNumber() {
-        return diceNumber;
+    public Dice() {
+        ran = new SecureRandom();
     }
 
+    public int useDice() {
+        return ran.nextInt(6) + 1;
+    }
 }

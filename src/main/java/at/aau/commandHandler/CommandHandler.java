@@ -17,7 +17,7 @@ public class CommandHandler {
         put(CommandType.PING, new PingCommand());
         put(CommandType.REGISTER, new RegisterCommand());
         put(CommandType.CHEAT, new PingCommand());
-        put(CommandType.DICE_ROLL, new PingCommand());
+        put(CommandType.DICE_ROLL, new DiceRollCommand());
         put(CommandType.START, new StartCommand());
         put(CommandType.PLAYER_MOVE, new MoveCommand());
         put(CommandType.RECONNECT, new ReconnectCommand());
