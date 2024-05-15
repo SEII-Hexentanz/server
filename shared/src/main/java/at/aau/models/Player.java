@@ -1,9 +1,11 @@
 package at.aau.models;
 
+import at.aau.values.CharacterState;
 import at.aau.values.Color;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -32,6 +34,13 @@ public record Player(String name, int age, Color color,
 
     public static void setSender(Sender sender) {
         Player.sender = sender;
+    }
+
+    public Player updateCharacterState(int characterIndex, CharacterState newState) {
+        Character updatedCharacter = new Character(characters().get(characterIndex).position(), newState);
+        List<Character> updatedCharacters = new ArrayList<>(characters());
+        updatedCharacters.set(characterIndex, updatedCharacter);
+        return new Player(name, age, color, updatedCharacters);
     }
 
 }
