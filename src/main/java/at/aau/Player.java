@@ -9,6 +9,7 @@ import io.vavr.control.Option;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.UUID;
 
 public final class Player implements Comparable<Player>, Serializable {
     private final String name;
@@ -59,6 +60,14 @@ public final class Player implements Comparable<Player>, Serializable {
         return age;
     }
 
+    public ArrayList<Character> characters() {
+        return characters;
+    }
+
+    public void setCharacters(ArrayList<Character> characters) {
+        this.characters = characters;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
@@ -73,7 +82,7 @@ public final class Player implements Comparable<Player>, Serializable {
     private void createCharacters() {
         characters = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-            characters.add(new Character(0, CharacterState.HOME));
+            characters.add(new Character(UUID.randomUUID(), 0, CharacterState.HOME));
         }
     }
 
