@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class Game implements Serializable {
     private final SortedSet<Player> players = Collections.synchronizedSortedSet(new TreeSet<>());
     private GameState state = GameState.LOBBY;
+    private int activePlayerIndex = 0;
 
     public SortedSet<Player> getPlayers() {
         return players;
@@ -26,11 +27,19 @@ public class Game implements Serializable {
         this.state = state;
     }
 
+    public int activePlayerIndex() {
+        return activePlayerIndex;
+    }
+
+    public void setActivePlayerIndex(int activePlayerIndex) {
+        this.activePlayerIndex = activePlayerIndex;
+    }
+
     public void broadcast(Response response) {
         players.forEach(p -> p.send(response));
     }
 
     public GameData toModel() {
-        return new GameData(players.stream().map(Player::toModel).collect(Collectors.toCollection(TreeSet::new)), state);
+        return new GameData(players.stream().map(Player::toModel).collect(Collectors.toCollection(TreeSet::new)), state, activePlayerIndex);
     }
 }
