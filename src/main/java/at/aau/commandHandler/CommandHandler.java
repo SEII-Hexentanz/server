@@ -7,7 +7,6 @@ import at.aau.commands.PingCommand;
 import at.aau.commands.PlayerMoveCommand;
 import at.aau.commands.RegisterCommand;
 import at.aau.commands.StartCommand;
-import at.aau.commands.TimerCommand;
 import at.aau.models.Request;
 import at.aau.models.Response;
 import at.aau.payloads.PlayerMovePayload;
@@ -26,7 +25,6 @@ public class CommandHandler {
         put(CommandType.DICE_ROLL, new DiceCommand());
         put(CommandType.PLAYER_MOVE, new PlayerMoveCommand());
         put(CommandType.START, new StartCommand());
-        put(CommandType.TIMER, new TimerCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {
