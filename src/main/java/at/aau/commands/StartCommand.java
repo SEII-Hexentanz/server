@@ -12,7 +12,7 @@ import at.aau.values.ResponseType;
 public class StartCommand implements Command {
     @Override
     public void execute(Game game, Player player, Payload payload) {
-        if (game.getPlayers().size() >= 1 && game.getPlayers().size() <= 6) {
+        if (game.getPlayers().size() >= 3 && game.getPlayers().size() <= 6) {
             game.setState(GameState.RUNNING);
             game.broadcast(new Response(ResponseType.UPDATE_STATE, new UpdateStatePayload(game.toModel())));
         } else {
