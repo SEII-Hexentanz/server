@@ -18,7 +18,6 @@ public class PlayerMoveCommand implements Command {
             String playerName = movePayload.playerName();
 
             // Update the player's position in the game
-            player.setPosition(newPosition);
 
             // Notify the player about the successful move
             player.send(new Response(ResponseType.UPDATE_STATE, new PlayerMovePayload(oldPosition, newPosition,playerName)));
