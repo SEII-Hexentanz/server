@@ -3,5 +3,6 @@ package at.aau.values;
 import java.io.Serializable;
 
 public enum ResponseType implements Serializable {
-    BAD_REQUEST, GAME_FULL, NOT_REGISTERED, UPDATE_STATE, MOVE_SUCCESSFUL, PONG, DICE_THROWN, TIMER_RUNNING, TIMER_STOPPED
+
+    BAD_REQUEST, GAME_FULL, NOT_REGISTERED, UPDATE_STATE, PONG, GAME_END, DICE_ROLLED
 }
