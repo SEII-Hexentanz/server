@@ -31,10 +31,6 @@ public final class Player implements Comparable<Player>, Serializable {
         createCharacters();
     }
 
-    public void setConnection(Connection connection) {
-        this.connection = Option.of(connection);
-    }
-
     public void send(Response response) {
         connection.peek(c -> c.send(response));
     }
@@ -88,8 +84,5 @@ public final class Player implements Comparable<Player>, Serializable {
 
     public at.aau.models.Player toModel() {
         return new at.aau.models.Player(name, age, color, characters);
-    }
-
-    public void setPosition(int i) {
     }
 }

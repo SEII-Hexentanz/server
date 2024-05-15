@@ -4,7 +4,6 @@ import at.aau.commandHandler.CommandHandler;
 import at.aau.models.Request;
 import at.aau.models.Response;
 import at.aau.payloads.RegisterPayload;
-import at.aau.payloads.PlayerMovePayload;
 import at.aau.util.SecureObjectInputStream;
 import at.aau.values.CommandType;
 import at.aau.values.ResponseType;
