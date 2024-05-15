@@ -8,5 +8,4 @@ public enum CommandType {
     REGISTER,
     START,
     RECONNECT,
-    TIMER,
 }
