@@ -41,7 +41,7 @@ class StartCommandTest {
         verify(game, times(1)).setState(GameState.RUNNING);
         verify(game, times(1)).broadcast(any(Response.class));
     }
-/*
+
     @Test
     public void shouldNotStartGameWhenPlayerCountIsLessThanThree() {
         for (int i = 0; i < 2; i++) {
@@ -53,8 +53,6 @@ class StartCommandTest {
         verify(game, times(0)).setState(GameState.RUNNING);
         verify(player, times(1)).send(new Response(ResponseType.BAD_REQUEST));
     }
-    */
-
 
     @Test
     public void shouldNotStartGameWhenPlayerCountIsMoreThanSix() {
