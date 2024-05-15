@@ -31,6 +31,10 @@ public final class Player implements Comparable<Player>, Serializable {
         createCharacters();
     }
 
+    public void setConnection(Connection connection) {
+        this.connection = Option.of(connection);
+    }
+
     public void send(Response response) {
         connection.peek(c -> c.send(response));
     }
