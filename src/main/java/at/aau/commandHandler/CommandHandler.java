@@ -23,6 +23,7 @@ public class CommandHandler {
         put(CommandType.TIMER, new RegisterCommand());
         put(CommandType.RECONNECT, new ReconnectCommand());
         put(CommandType.REQUEST_DICE_ROLL, new PingCommand());
+
     }};
 
     public static void execute(Request request, Player player, Game game) {

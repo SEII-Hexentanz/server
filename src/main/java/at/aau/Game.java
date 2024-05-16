@@ -14,6 +14,8 @@ public class Game implements Serializable {
     private final SortedSet<Player> players = Collections.synchronizedSortedSet(new TreeSet<>());
     private GameState state = GameState.LOBBY;
 
+    private int currentPlayerIndex = 0;
+
     public SortedSet<Player> getPlayers() {
         return players;
     }
@@ -32,5 +34,13 @@ public class Game implements Serializable {
 
     public GameData toModel() {
         return new GameData(players.stream().map(Player::toModel).collect(Collectors.toCollection(TreeSet::new)), state);
+    }
+
+    public Player getNextPlayer(){
+        if(currentPlayerIndex >= players.size()){
+            currentPlayerIndex = 0;
+        }
+
+        return (Player) players.toArray()[currentPlayerIndex++];
     }
 }
