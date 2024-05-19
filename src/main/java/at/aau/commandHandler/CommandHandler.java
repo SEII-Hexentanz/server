@@ -12,6 +12,7 @@ import at.aau.values.ResponseType;
 import java.util.HashMap;
 import java.util.Map;
 
+// fixme avoid static methods and use oop instead, ie., a commandhandler object
 public class CommandHandler {
     private static final Map<CommandType, Command> commands = new HashMap<>() {{
         put(CommandType.PING, new PingCommand());

@@ -15,6 +15,7 @@ import java.util.TreeSet;
 
 import static org.mockito.Mockito.*;
 
+// fixme classname and filename dont match
 class StartCommandTest {
     private Game game;
     private Player player;
