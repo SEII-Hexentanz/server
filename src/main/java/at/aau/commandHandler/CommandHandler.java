@@ -2,9 +2,6 @@ package at.aau.commandHandler;
 
 import at.aau.Game;
 import at.aau.Player;
-import at.aau.commands.PingCommand;
-import at.aau.commands.RegisterCommand;
-import at.aau.commands.StartCommand;
 import at.aau.commands.*;
 import at.aau.models.Request;
 import at.aau.models.Response;
