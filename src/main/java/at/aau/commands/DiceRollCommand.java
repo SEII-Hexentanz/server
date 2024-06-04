@@ -19,7 +19,7 @@ public class DiceRollCommand implements Command {
     public void execute(Game game, Player player, Payload payload) {
         Dice dice = new Dice();
         int diceValue = dice.useDice();
-        //int diceValue = 6;
+       // int diceValue = 6;
         DicePayload dicePayload = new DicePayload(diceValue, player.toModel());
 
         if (isValidDiceValue(diceValue)) {
