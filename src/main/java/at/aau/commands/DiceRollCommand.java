@@ -7,6 +7,7 @@ import at.aau.commandHandler.Command;
 import at.aau.models.Response;
 import at.aau.payloads.DicePayload;
 import at.aau.payloads.Payload;
+import at.aau.payloads.YourTurnPayload;
 import at.aau.values.ResponseType;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +24,14 @@ public class DiceRollCommand implements Command {
 
         if (isValidDiceValue(diceValue)) {
             logger.info("Dice rolled: {}", diceValue);
+
             game.broadcast(new Response(ResponseType.DICE_ROLLED, dicePayload));
+
+            if(player.allCharactersInHome() && diceValue != 6){
+                game.setActivePlayerIndex((game.activePlayerIndex() + 1) % game.getPlayers().size());
+                Player nextPlayer = (Player) game.getPlayers().toArray()[game.activePlayerIndex()];
+                nextPlayer.send(new Response(ResponseType.YOUR_TURN, new YourTurnPayload(nextPlayer.toModel())));
+            }
         } else {
             logger.info("Invalid dice value: {}", diceValue);
             game.broadcast(new Response(ResponseType.DICE_ROLLED, new DicePayload(1, player.toModel())));
