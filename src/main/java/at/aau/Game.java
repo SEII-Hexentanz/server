@@ -34,6 +34,14 @@ public class Game implements Serializable {
     public void setActivePlayerIndex(int activePlayerIndex) {
         this.activePlayerIndex = activePlayerIndex;
     }
+    public boolean nameExists(String name){
+        for(Player player: players){
+            if(player.name().equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void broadcast(Response response) {
         players.forEach(p -> p.send(response));

@@ -12,6 +12,7 @@ import at.aau.payloads.Payload;
 import at.aau.payloads.PlayerMovePayload;
 import at.aau.payloads.YourTurnPayload;
 import at.aau.values.CharacterState;
+import at.aau.values.MoveType;
 import at.aau.values.ResponseType;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +38,11 @@ public class MoveCommand implements Command {
                                                 : c)
                                         .collect(Collectors.toCollection(ArrayList::new)));
 
-                                player.send(new Response(ResponseType.MOVE_SUCCESSFUL));
+                                //player.send(new Response(ResponseType.MOVE_SUCCESSFUL));
+
+                                game.broadcast(new Response(ResponseType.MOVE_SUCCESSFUL, new PlayerMovePayload(movePayload.characterId(), movePayload.newPosition(), MoveType.MOVE_TO_FIELD)));
+                                logger.info("MOVE_CHARACTER {} to position {} .", movePayload.characterId(), movePayload.newPosition());
+
 
                                 game.setActivePlayerIndex((game.activePlayerIndex() + 1) % game.getPlayers().size());
 
