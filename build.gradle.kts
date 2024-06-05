@@ -2,12 +2,15 @@ plugins {
     java
     jacoco
     alias(libs.plugins.sonarqube)
+    alias(libs.plugins.shadow)
+    alias(libs.plugins.jib)
 }
 
 group = "at.aau"
 version = "1.0-SNAPSHOT"
 
 repositories {
+    google()
     mavenCentral()
 }
 
@@ -51,5 +54,17 @@ sonar {
             "sonar.coverage.jacoco.xmlReportPaths",
             "${project.projectDir}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
         )
+    }
+}
+
+jib {
+    from {
+        image = "eclipse-temurin:21-jre"
+    }
+    to {
+        image = "hexentanz:$version"
+    }
+    container {
+        ports = listOf("8080")
     }
 }
