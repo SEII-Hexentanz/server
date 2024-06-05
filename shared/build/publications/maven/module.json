@@ -19,7 +19,7 @@
       "attributes": {
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
-        "org.gradle.jvm.version": 17,
+        "org.gradle.jvm.version": 21,
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
@@ -27,11 +27,11 @@
         {
           "name": "hexentanz-shared-1.0.7.jar",
           "url": "hexentanz-shared-1.0.7.jar",
-          "size": 15207,
-          "sha512": "6510a1c8c2ad1ced04271926619ff4b1af0fda94b8bb087b3d45e4cdb729b2fd05ec21a2b0f89bfdc4980964d1fbb75e1a5e0e8c4283548db7ba497f0938c131",
-          "sha256": "e709b8fa06fd4e570fcde5a76c73b3848398e4d49538bd231ac3606eed005528",
-          "sha1": "385b2d8251d82455e748572ba6d6ebdd24332a65",
-          "md5": "b541fad279b437372bd7dcbed716a7f7"
+          "size": 17244,
+          "sha512": "811e26f00f97660827fbeaacc032fab08ac785f7aeb7f24c5a5c82d0b1f1b70fe17fe269516e6c6fbde0c8ea1aaee125b2e85d4d4fbbcb82fdd95529101547fa",
+          "sha256": "a03133f144d1f3944c5d07b41f4d5146704ba8291d88f120546af4ab5c48e73f",
+          "sha1": "20ffcea4ca4425a01a47de23cd448de62ee37b17",
+          "md5": "09d7d10c34b04d7d69e2f33b1a5e5291"
         }
       ]
     },
@@ -40,7 +40,7 @@
       "attributes": {
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
-        "org.gradle.jvm.version": 17,
+        "org.gradle.jvm.version": 21,
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-runtime"
       },
@@ -48,11 +48,11 @@
         {
           "name": "hexentanz-shared-1.0.7.jar",
           "url": "hexentanz-shared-1.0.7.jar",
-          "size": 15207,
-          "sha512": "6510a1c8c2ad1ced04271926619ff4b1af0fda94b8bb087b3d45e4cdb729b2fd05ec21a2b0f89bfdc4980964d1fbb75e1a5e0e8c4283548db7ba497f0938c131",
-          "sha256": "e709b8fa06fd4e570fcde5a76c73b3848398e4d49538bd231ac3606eed005528",
-          "sha1": "385b2d8251d82455e748572ba6d6ebdd24332a65",
-          "md5": "b541fad279b437372bd7dcbed716a7f7"
+          "size": 17244,
+          "sha512": "811e26f00f97660827fbeaacc032fab08ac785f7aeb7f24c5a5c82d0b1f1b70fe17fe269516e6c6fbde0c8ea1aaee125b2e85d4d4fbbcb82fdd95529101547fa",
+          "sha256": "a03133f144d1f3944c5d07b41f4d5146704ba8291d88f120546af4ab5c48e73f",
+          "sha1": "20ffcea4ca4425a01a47de23cd448de62ee37b17",
+          "md5": "09d7d10c34b04d7d69e2f33b1a5e5291"
         }
       ]
     }

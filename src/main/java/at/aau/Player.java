@@ -81,11 +81,19 @@ public final class Player implements Comparable<Player>, Serializable {
 
     private void createCharacters() {
         characters = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             characters.add(new Character(UUID.randomUUID(), 0, CharacterState.HOME));
         }
     }
+    public boolean allCharactersInHome(){
 
+        for(Character c: characters){
+            if(!c.status().equals(CharacterState.HOME)){
+                return false;
+            }
+        }
+        return true;
+    }
     @Override
     public int hashCode() {
         return Objects.hash(name, color, age);

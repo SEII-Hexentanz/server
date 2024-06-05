@@ -8,4 +8,7 @@ public enum CommandType {
     REGISTER,
     START,
     RECONNECT,
+    NAME_ALREADY_EXISTS,
+    PLAYER_REGISTER_OKAY,
+    MOVE_TO_START
 }

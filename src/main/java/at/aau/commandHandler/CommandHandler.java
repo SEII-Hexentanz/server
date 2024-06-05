@@ -21,6 +21,8 @@ public class CommandHandler {
         put(CommandType.START, new StartCommand());
         put(CommandType.PLAYER_MOVE, new MoveCommand());
         put(CommandType.RECONNECT, new ReconnectCommand());
+        put(CommandType.NAME_ALREADY_EXISTS, new RegisterCommand());
+        put(CommandType.PLAYER_REGISTER_OKAY, new RegisterCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {
