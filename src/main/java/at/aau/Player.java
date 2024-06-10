@@ -82,9 +82,10 @@ public final class Player implements Comparable<Player>, Serializable {
     private void createCharacters() {
         characters = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            characters.add(new Character(UUID.randomUUID(), 0, CharacterState.HOME));
+            characters.add(new Character(UUID.randomUUID(), 0, CharacterState.HOME,0));
         }
     }
+
     public boolean allCharactersInHome(){
 
         for(Character c: characters){
