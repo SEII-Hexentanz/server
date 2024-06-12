@@ -4,6 +4,8 @@ vavr = "1.0.0-alpha-4"
 sonarcube = "5.0.0.4638"
 log4j = "2.23.1"
 mockito = "5.11.0"
+jib = "3.4.1"
+shadow = "8.1.1"
 
 [libraries]
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
@@ -17,3 +19,5 @@ mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "m
 
 [plugins]
 sonarqube = { id = "org.sonarqube", version.ref = "sonarcube" }
+jib = { id = "com.google.cloud.tools.jib", version.ref = "jib" }
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
