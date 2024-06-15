@@ -10,5 +10,6 @@ public enum CommandType {
     RECONNECT,
     NAME_ALREADY_EXISTS,
     PLAYER_REGISTER_OKAY,
-    MOVE_TO_START
+    MOVE_TO_START,
+    CHEAT_USED
 }
