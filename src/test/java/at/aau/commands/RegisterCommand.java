@@ -80,7 +80,7 @@ class RegisterCommandTest {
     }
 
     @Test
-    void shouldSendBadRequestWhenPlayerNameAlreadyExists() {
+    void shouldSendNameAlreadyExistsWhenPlayerNameAlreadyExists() {
         when(game.getState()).thenReturn(GameState.LOBBY);
         for (int i = 0; i < 5; i++) {
             Player mockPlayer = mock(Player.class);
@@ -88,7 +88,7 @@ class RegisterCommandTest {
             players.add(mockPlayer);
         }
         registerCommand.execute(game, player, new RegisterPayload("1", 18));
-        verify(player).send(new Response(ResponseType.BAD_REQUEST));
+        verify(player).send(new Response(ResponseType.NAME_ALREADY_EXISTS));
     }
 
     @Test
