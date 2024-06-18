@@ -20,11 +20,13 @@ public class Connection extends Thread {
     private final Socket socket;
     private ObjectOutputStream out;
     private final Game game;
+    private final CommandHandler commandHandler;
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(Connection.class);
 
-    public Connection(Socket socket, Game game) {
+    public Connection(Socket socket, Game game, CommandHandler commandHandler) {
         this.socket = socket;
         this.game = game;
+        this.commandHandler = commandHandler;
     }
 
     @Override
@@ -46,11 +48,11 @@ public class Connection extends Thread {
                 logger.info("Received request: {}", request);
                 if ((request.commandType() == CommandType.REGISTER || request.commandType() == CommandType.RECONNECT) && request.payload() instanceof RegisterPayload payload) {
                     var player = new Player(this, payload.name(), payload.age());
-                    CommandHandler.execute(request, player, game);
+                    commandHandler.execute(request, player, game);
                     continue;
                 }
                 game.getPlayers().stream().filter(player -> Objects.equals(player.connection.getOrNull(), this))
-                        .findFirst().ifPresentOrElse(player -> CommandHandler.execute(request, player, game),
+                        .findFirst().ifPresentOrElse(player -> commandHandler.execute(request, player, game),
                                 () -> send(new Response(ResponseType.NOT_REGISTERED)));
             }
         } catch (IOException e) {
