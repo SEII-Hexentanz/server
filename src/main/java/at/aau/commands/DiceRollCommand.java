@@ -1,9 +1,9 @@
 package at.aau.commands;
 
-import at.aau.Dice;
 import at.aau.Game;
 import at.aau.Player;
 import at.aau.commandHandler.Command;
+import at.aau.logic.Dice;
 import at.aau.models.Response;
 import at.aau.payloads.DicePayload;
 import at.aau.payloads.Payload;
