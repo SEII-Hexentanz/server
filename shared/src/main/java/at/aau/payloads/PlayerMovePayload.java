@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import at.aau.values.MoveType;
 
-public record PlayerMovePayload(UUID characterId, int newPosition, MoveType moveType) implements Payload {
+public record PlayerMovePayload(UUID characterId, int newPosition, MoveType moveType, int steps) implements Payload {
     @Serial
     private static final long serialVersionUID = -1783123104231656319L;
 }
