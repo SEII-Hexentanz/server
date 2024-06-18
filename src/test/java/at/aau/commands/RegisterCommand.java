@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
+// fixme classname and filename dont match
 class RegisterCommandTest {
     private RegisterCommand registerCommand;
     private Game game;
