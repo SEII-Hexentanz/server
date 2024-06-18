@@ -3,6 +3,7 @@ package at.aau.commandHandler;
 import at.aau.Game;
 import at.aau.Player;
 import at.aau.commands.*;
+import at.aau.logic.Dice;
 import at.aau.models.Request;
 import at.aau.models.Response;
 import at.aau.payloads.UpdateStatePayload;
@@ -19,7 +20,7 @@ public class CommandHandler {
         commands.put(CommandType.PING, new PingCommand());
         commands.put(CommandType.REGISTER, new RegisterCommand());
         commands.put(CommandType.CHEAT, new PingCommand());
-        commands.put(CommandType.DICE_ROLL, new DiceRollCommand());
+        commands.put(CommandType.DICE_ROLL, new DiceRollCommand(new Dice()));
         commands.put(CommandType.START, new StartCommand());
         commands.put(CommandType.PLAYER_MOVE, new MoveCommand());
         commands.put(CommandType.RECONNECT, new ReconnectCommand());
