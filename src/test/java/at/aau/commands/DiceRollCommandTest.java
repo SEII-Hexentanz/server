@@ -59,8 +59,8 @@ public class DiceRollCommandTest {
     public void validDiceBelow6AllInHome() {
         when(player1.allCharactersInHome()).thenReturn(true);
         when(dice.useDice()).thenReturn(4);
-        when(game.activePlayerIndex()).thenReturn(1);
-        TreeSet<Player> players = new TreeSet<>(Set.of(player1, player2));
+        when(game.activePlayerIndex()).thenReturn(0);
+        TreeSet<Player> players = new TreeSet<>(Set.of(player1));
         when(game.getPlayers()).thenReturn(players);
         diceRollCommand.execute(game, player1, null);
 
@@ -70,7 +70,7 @@ public class DiceRollCommandTest {
         assertEquals(4, ((DicePayload) argument.getValue().payload()).diceValue());
 
         ArgumentCaptor<Response> argument2 = ArgumentCaptor.forClass(Response.class);
-        verify(player2).send(argument2.capture());
+        verify(player1).send(argument2.capture());
         assertEquals(ResponseType.YOUR_TURN, argument2.getValue().responseType());
     }
 
