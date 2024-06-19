@@ -1,9 +1,9 @@
 package at.aau.commands;
 
-import at.aau.Dice;
 import at.aau.Game;
 import at.aau.Player;
 import at.aau.commandHandler.Command;
+import at.aau.logic.Dice;
 import at.aau.models.Response;
 import at.aau.payloads.DicePayload;
 import at.aau.payloads.Payload;
@@ -12,14 +12,16 @@ import at.aau.values.ResponseType;
 import org.slf4j.LoggerFactory;
 
 public class DiceRollCommand implements Command {
-
+    private final Dice dice;
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(DiceRollCommand.class);
+
+    public DiceRollCommand(Dice dice) {
+        this.dice = dice;
+    }
 
     @Override
     public void execute(Game game, Player player, Payload payload) {
-        Dice dice = new Dice();
         int diceValue = dice.useDice();
-        //int diceValue = 6;
         DicePayload dicePayload = new DicePayload(diceValue, player.toModel());
 
         if (isValidDiceValue(diceValue)) {

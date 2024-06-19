@@ -15,10 +15,10 @@ public class ReconnectCommand implements Command {
         if (payload instanceof RegisterPayload registerPayload) {
             game.getPlayers().stream().filter(p -> p.name().equals(registerPayload.name())).findFirst()
                     .ifPresentOrElse(p -> {
-                        if (p.connection.isDefined()) {
+                        if (p.connection().isDefined()) {
                             player.send(new Response(ResponseType.BAD_REQUEST));
                         } else {
-                            p.connection = Option.some(player.connection.getOrNull());
+                            p.setConnection(Option.some(player.connection().getOrNull()));
                             player.send(new Response(ResponseType.PONG));
                         }
                     }, () -> player.send(new Response(ResponseType.NOT_REGISTERED)));

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class MoveCommand implements Command {
-    private final org.slf4j.Logger logger = LoggerFactory.getLogger(DiceRollCommand.class);
+    private final org.slf4j.Logger logger = LoggerFactory.getLogger(MoveCommand.class);
 
     @Override
     public void execute(Game game, Player player, Payload payload) {
@@ -36,8 +36,6 @@ public class MoveCommand implements Command {
                                                 ? new Character(c.id(), movePayload.newPosition(), c.status(), movePayload.steps())
                                                 : c)
                                         .collect(Collectors.toCollection(ArrayList::new)));
-
-                                //player.send(new Response(ResponseType.MOVE_SUCCESSFUL));
 
                                 game.broadcast(new Response(ResponseType.MOVE_SUCCESSFUL, new PlayerMovePayload(movePayload.characterId(), movePayload.newPosition(), movePayload.moveType(), movePayload.steps())));
                                 logger.info("MOVE_CHARACTER {} to position {} .", movePayload.characterId(), movePayload.newPosition());

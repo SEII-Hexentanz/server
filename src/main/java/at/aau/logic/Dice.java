@@ -1,4 +1,4 @@
-package at.aau;
+package at.aau.logic;
 
 import java.security.SecureRandom;
 
