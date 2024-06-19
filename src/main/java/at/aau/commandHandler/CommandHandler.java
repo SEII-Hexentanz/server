@@ -23,7 +23,7 @@ public class CommandHandler {
         put(CommandType.RECONNECT, new ReconnectCommand());
         put(CommandType.NAME_ALREADY_EXISTS, new RegisterCommand());
         put(CommandType.PLAYER_REGISTER_OKAY, new RegisterCommand());
-        put(CommandType.CHEAT_USED, new PingCommand());
+        put(CommandType.CHEAT_USED, new CheatCommand());
     }};
 
     public static void execute(Request request, Player player, Game game) {
