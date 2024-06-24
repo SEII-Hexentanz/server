@@ -6,15 +6,16 @@ import at.aau.models.Character;
 import at.aau.models.Response;
 import at.aau.payloads.CheatPayload;
 import at.aau.payloads.Payload;
+import at.aau.values.CharacterState;
 import at.aau.values.Color;
 import at.aau.values.ResponseType;
+import io.vavr.control.Option;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -50,7 +51,13 @@ class CheatCommandTest {
     public void testExecute_CheatNotUsed() {
         when(player.usedCheat()).thenReturn(false);
         when(player.name()).thenReturn("TestPlayer");
-        when(player.toModel()).thenReturn(new at.aau.models.Player("TestPlayer", 20, Color.RED, false, new ArrayList<>()));
+
+        ArrayList<Character> characters = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            characters.add(new Character(UUID.randomUUID(), 0, CharacterState.HOME, 0));
+        }
+
+        when(player.toModel()).thenReturn(new at.aau.models.Player("TestPlayer", 20, Color.RED, false, characters));
 
         cheatCommand.execute(game, player, payload);
 
