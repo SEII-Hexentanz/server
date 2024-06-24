@@ -20,7 +20,7 @@ public final class Player implements Comparable<Player>, Serializable {
      * Option.some() player is online - reconnecting with same name is not allowed.
      * Option.none() player is offline - allowed to reconnect and register with new socket.
      */
-    transient public Option<Connection> connection;
+    private transient Option<Connection> connection;
     private Color color;
 
     public Player(Connection connection, String name, int age, boolean usedCheat) {
@@ -43,6 +43,14 @@ public final class Player implements Comparable<Player>, Serializable {
     @Override
     public int compareTo(Player o) {
         return o.age() - this.age();
+    }
+
+    public Option<Connection> connection() {
+        return connection;
+    }
+
+    public void setConnection(Option<Connection> connection) {
+        this.connection = connection;
     }
 
     public String name() {
