@@ -14,7 +14,7 @@ import java.util.UUID;
 public final class Player implements Comparable<Player>, Serializable {
     private final String name;
     private final int age;
-
+    boolean usedCheat;
     private ArrayList<Character> characters;
     /**
      * Option.some() player is online - reconnecting with same name is not allowed.
@@ -23,11 +23,12 @@ public final class Player implements Comparable<Player>, Serializable {
     private transient Option<Connection> connection;
     private Color color;
 
-    public Player(Connection connection, String name, int age) {
+    public Player(Connection connection, String name, int age, boolean usedCheat) {
         this.connection = Option.of(connection);
         this.name = name;
         this.color = Color.RED;
         this.age = age;
+        this.usedCheat=usedCheat;
 
         createCharacters();
     }
@@ -67,8 +68,16 @@ public final class Player implements Comparable<Player>, Serializable {
     public int age() {
         return age;
     }
+    public boolean usedCheat() {
+        return usedCheat;
+    }
 
-    public ArrayList<Character> characters() {
+    public void setUsedCheat(boolean hasUsedCheat) {
+        this.usedCheat = hasUsedCheat;
+    }
+
+
+        public ArrayList<Character> characters() {
         return characters;
     }
 
@@ -84,6 +93,7 @@ public final class Player implements Comparable<Player>, Serializable {
         return Objects.equals(this.name, that.name) &&
                 Objects.equals(this.color, that.color) &&
                 this.age == that.age &&
+                this.usedCheat==that.usedCheat &&
                 Objects.equals(this.characters, that.characters);
     }
 
@@ -109,6 +119,6 @@ public final class Player implements Comparable<Player>, Serializable {
     }
 
     public at.aau.models.Player toModel() {
-        return new at.aau.models.Player(name, age, color, characters);
+        return new at.aau.models.Player(name, age, color,usedCheat, characters);
     }
 }

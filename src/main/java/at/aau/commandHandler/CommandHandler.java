@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandHandler {
+
     private final Map<CommandType, Command> commands = new HashMap<>();
 
     public CommandHandler() {

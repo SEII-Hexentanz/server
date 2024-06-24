@@ -47,7 +47,7 @@ public class Connection extends Thread {
                 }
                 logger.info("Received request: {}", request);
                 if ((request.commandType() == CommandType.REGISTER || request.commandType() == CommandType.RECONNECT) && request.payload() instanceof RegisterPayload payload) {
-                    var player = new Player(this, payload.name(), payload.age());
+                    var player = new Player(this, payload.name(), payload.age(),false);
                     commandHandler.execute(request, player, game);
                     continue;
                 }
