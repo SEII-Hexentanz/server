@@ -65,14 +65,14 @@ public class GameEndTest {
         var fieldChar = Mockito.mock(Character.class);
         when(fieldChar.status()).thenReturn(CharacterState.FIELD);
         var p1Chars = Arrays.asList(
-                goalChar,
-                goalChar,
+                fieldChar,
+                fieldChar,
                 fieldChar,
                 fieldChar
         );
         var p2Chars = Arrays.asList(
-                goalChar,
-                goalChar,
+                fieldChar,
+                fieldChar,
                 fieldChar,
                 fieldChar
         );

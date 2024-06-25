@@ -9,7 +9,7 @@ import java.util.Optional;
 public class GameEnd {
     public static Optional<Player> getWinner(GameData gameData) {
         for (Player player : gameData.players()) {
-            if (player.characters().stream().allMatch(character -> character.status() == CharacterState.GOAL)) {
+            if (player.characters().stream().anyMatch(character -> character.status() == CharacterState.GOAL)) {
                 return Optional.of(player);
             }
         }

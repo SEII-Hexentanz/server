@@ -1,7 +1,5 @@
 package at.aau.commands;
 
-import org.slf4j.LoggerFactory;
-
 import at.aau.Game;
 import at.aau.Player;
 import at.aau.commandHandler.Command;
@@ -11,6 +9,7 @@ import at.aau.payloads.UpdateStatePayload;
 import at.aau.payloads.YourTurnPayload;
 import at.aau.values.GameState;
 import at.aau.values.ResponseType;
+import org.slf4j.LoggerFactory;
 
 public class StartCommand implements Command {
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(StartCommand.class);
@@ -26,7 +25,7 @@ public class StartCommand implements Command {
 
             p.send(new Response(ResponseType.YOUR_TURN, new YourTurnPayload(p.toModel())));
             System.out.println(p.name());
-            logger.info("Send turn to next player: ", p.name());
+            logger.info("Send turn to next player: {}", p.name());
         } else {
             player.send(new Response(ResponseType.BAD_REQUEST));
         }
