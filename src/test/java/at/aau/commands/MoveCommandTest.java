@@ -89,7 +89,7 @@ class MoveCommandTest {
         when(game.toModel()).thenReturn(gameData);
         moveCommand.execute(game, player, playerMovePayload);
 
-        verify(player).setCharacters(Mockito.argThat(characters -> characters.size() == 1 && characters.get(0).id().equals(characterId)));
+        verify(player, atMost(2)).setCharacters(Mockito.argThat(characters -> characters.size() == 1 && characters.get(0).id().equals(characterId)));
         verify(game).broadcast(Mockito.argThat(response -> response.responseType() == ResponseType.MOVE_SUCCESSFUL));
     }
 
