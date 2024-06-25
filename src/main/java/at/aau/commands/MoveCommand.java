@@ -11,6 +11,7 @@ import at.aau.payloads.Payload;
 import at.aau.payloads.PlayerMovePayload;
 import at.aau.payloads.YourTurnPayload;
 import at.aau.values.CharacterState;
+import at.aau.values.MoveType;
 import at.aau.values.ResponseType;
 import org.slf4j.LoggerFactory;
 
@@ -30,16 +31,40 @@ public class MoveCommand implements Command {
                         .findFirst()
                         .ifPresentOrElse(character -> {
                             if (character.status() != CharacterState.GOAL) {
+
+                                var characterOnNewPosition = game.getPlayers().stream()
+                                        .flatMap(p -> p.characters().stream())
+                                        .filter(c -> c.position() == movePayload.newPosition())
+                                        .findFirst();
+
+                                if (characterOnNewPosition.isPresent()) {
+                                    var ch = characterOnNewPosition.get();
+                                    if (ch.status() == CharacterState.FIELD) {
+                                        game.getPlayers().stream()
+                                                .filter(p -> p.characters().contains(ch))
+                                                .findFirst()
+                                                .ifPresent(p -> {
+                                                    p.setCharacters(p.characters().stream()
+                                                            .map(c -> c.id().equals(ch.id())
+                                                                    ? new Character(c.id(), 0, CharacterState.HOME, 0)
+                                                                    : c)
+                                                            .collect(Collectors.toCollection(ArrayList::new)));
+                                                });
+                                        logger.info("Player {} kicked character {} back to home.", player.name(), ch.id());
+                                    }
+                                }
+
+                                var newStatus = movePayload.moveType() == MoveType.MOVE_TO_GOAL ? CharacterState.GOAL : CharacterState.FIELD;
+
                                 player.setCharacters(player.characters().stream()
                                         .map(c -> c.id().equals(movePayload.characterId())
                                                 //if needed send steps from client and update it here
-                                                ? new Character(c.id(), movePayload.newPosition(), c.status(), movePayload.steps())
+                                                ? new Character(c.id(), movePayload.newPosition(), newStatus, movePayload.steps())
                                                 : c)
                                         .collect(Collectors.toCollection(ArrayList::new)));
 
                                 game.broadcast(new Response(ResponseType.MOVE_SUCCESSFUL, new PlayerMovePayload(movePayload.characterId(), movePayload.newPosition(), movePayload.moveType(), movePayload.steps())));
                                 logger.info("MOVE_CHARACTER {} to position {} .", movePayload.characterId(), movePayload.newPosition());
-
 
                                 game.setActivePlayerIndex((game.activePlayerIndex() + 1) % game.getPlayers().size());
 
